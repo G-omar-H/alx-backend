@@ -3,8 +3,9 @@
 0-simple_helper_function.py
 """
 
+from typing import Tuple
 
-def index_range(page: int, page_size: int) -> tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     unction should return a tuple of size two containing
     a start index and an end index corresponding
