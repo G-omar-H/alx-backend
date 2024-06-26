@@ -47,18 +47,17 @@ class LRUCache(BaseCaching):
         for key in self.cache_data.keys():
             if key not in self.ageDict.keys():
                 self.ageDict[key] = 0
-            
+
     def set_lru(self):
         """
         define the lest recentely used cache
         """
-        a , b = next(iter(self.ageDict.items()))
-        for key , value in self.ageDict.items():
+        a, b = next(iter(self.ageDict.items()))
+        for key, value in self.ageDict.items():
             if b > value:
                 a = key
                 b = value
         self.lru = a
-        
 
     def put(self, key, item):
         """
@@ -69,12 +68,13 @@ class LRUCache(BaseCaching):
             is higher that BaseCaching.MAX_ITEMS:
 
         must discard the least recently used item (LRU algorithm)
-        must print DISCARD: with the key discarded and following by a new 
+        must print DISCARD: with the key discarded and following by a new
         """
-        if key == None  or item == None:
+        if key is None or item is None:
             return
         self.set_age()
-        if len(self.cache_data) == self.MAX_ITEMS and key not in self.cache_data.keys():
+        if len(
+                self.cache_data) == self.MAX_ITEMS and key not in self.cache_data.keys():
             self.set_lru()
             print(f"DISCARD: {self.lru}")
             del self.cache_data[self.lru]
@@ -83,8 +83,6 @@ class LRUCache(BaseCaching):
         self.ageDict[key] = 0
         print(f"                               {self.ageDict}")
 
-                
-    
     def get(self, key):
         """
         return the value in self.cache_data linked to key.
@@ -94,8 +92,7 @@ class LRUCache(BaseCaching):
         Args:
             key (_type_): _description_
         """
-        if key == None or key not in self.cache_data.keys():
+        if key is None or key not in self.cache_data.keys():
             return None
-        self.ageDict[key]: self.ageDict[key] =+ 1
+        self.ageDict[key]: self.ageDict[key] = + 1
         return self.cache_data[key]
-         
