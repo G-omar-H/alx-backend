@@ -14,7 +14,6 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """ Add an item in the cache """
-        print(self.order)
         if key is None or item is None:
             return
 
