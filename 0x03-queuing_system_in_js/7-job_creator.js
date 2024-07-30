@@ -55,10 +55,10 @@ const jobs = [
         };
       });
       pushCode.on('complete', (result) => {
-        console.log('Notification job JOB_ID completed');
+        console.log(`Notification job #${pushCode.id} completed`);
       }).on('progress', (progress) => {
-        console.log(`Notification job ${job.id} ${progress}% complete`);
+        console.log(`Notification job #${pushCode.id} ${progress}% complete`);
       }).on('failed', (err) => {
-        console.log(`Notification job JOB_ID failed: ${err}`);
+        console.log(`Notification job #${pushCode.id} failed: ${err}`);
       });
   });
